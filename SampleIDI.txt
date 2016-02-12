@@ -1,0 +1,27 @@
+Mq manager BDBFZQAQM
+ 
+NY FED LTERM L1B77F1C
+ 
+For FED NY outgoing
+Queue name for FD Outgoing = Q_FNCR.FROMDI.026003557.A1
+ 
+Incoming for FED NY Office:
+Queue name for Acknowledgement = Q_FNCA.TODI.026003557.A1
+Queue Name for Notification = Q_FNCN.TODI.026003557.A1
+
+
+ 
+
+NY OFFICE CHIPS PN 0355
+ 
+Interface Names & Queue Names
+1.      CHIPS_0355_01 & Queue name = Q_CHIPS.0355.01
+2.      CHIPS_MOP_0355_01_ADM & Queue Name = Q_0355.CHIPS.01
+3.      CHIPS_MOP_0355_01_PAY & Queue Name =     Q_0355.CHIPS.01
+ 
+ 
+IP Address:  10.1.13.67   
+Port: 2200
+GPP SVRCONN Channel:  GPPAPP.SVRCONN
+
+GPPAPP.SVRCONN/TCP/10.1.13.67(2200)

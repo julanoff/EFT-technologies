@@ -1,0 +1,87 @@
+
+Questions to FT
+
+newjournal
+  username
+  module_id
+  error_params  order by time_stamp desc
+message_external_interface
+  interface_content
+    for a particular interface_name
+msg_rule_log
+  description seprated by commas order by time_stamp desc
+minf
+msgerr
+  ERROR_PARAMS
+  module_id
+  error_code  order by time_stamp desc
+
+
+All combinations for compare:
+SRC   TRG
+----  ----
+GPP   SP
+SP    SP
+GPP   GPP
+ACI   SP
+ACI   GPP
+ACI   ACI
+
+Scripts on MTS side:
+-------------------------------
+
+crdbm.pl - creates sendrefndx file key - actual ref (f20) + amt +
+crididbm.pl  - creates 
+dbm.pl (new name FindTrn.pl )- use to fetch target trn using f20+amont+currency
+dbmtst.pl (new name BuildTrnIndex.pl) - use to build the index file. Runs after the replay is complete
+
+Sequence of events in ACI reply/compare 
+1. Clean up MTS (especially send_ref_ndx)
+2. Replay traffic and make sure all is processed
+3. Run BuildTrnIndex.pl - creates sndrefndx.pag, sndrefndx.dir 
+4. Run compare on the Sim
+
+ORACLE CLIENT v12 
+    1,777,664 Oracle.DataAccess.dll
+    4,694,528 orannzsbb12.dll
+  171,764,736 oraociei12.dll
+      214,528 oraons.dll
+      409,600 OraOps12.dll
+      641,536 oci.dll
+    
+    and config file has to be:
+      
+  <system.data>
+    <DbProviderFactories>
+    <add name="Oracle Data Provider for .NET"
+    invariant="Oracle.DataAccess.Client"
+    description="Oracle Data Provider for .NET"
+    type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342"/>
+    </DbProviderFactories>
+    </system.data>
+
+ODAC121021Xcopy_x64.zip - from oracle site
+
+
+our tasks for the next couple of days
+
+1. Make an empty DB from citi DB for NT JN
+   Send it to John
+done. 2. Make excel for NT with all necessary info for them to fill out JN+JR
+   REquest MTS cfgs from NT
+   Need:
+      info for simcontrol like bank, host name, ip of MTS, etc.
+      info for line table
+      info for mqline table
+      info for processcontrol
+      ......
+   Send one to NT to get the info from them.
+done. 3. Walk thru acifeeder with JR
+done. 4. IDI -> XML routine JR
+done. 5. Go thru SQLs for ACI and decide what do we need from History, msg_text,PR, dest? JN + JR
+6. Adjust the key table. JN
+7. Create a loadable key file in order to populate DBs (config dir)
+8. After we get info from NT and # 6,7 are completed populate NT DBs to make them ready 
+9. Make FTPOC from NAUAT
+10. Finish ftbrowser, analyze
+11. 
