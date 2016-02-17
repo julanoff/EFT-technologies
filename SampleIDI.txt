@@ -1,3 +1,36 @@
+		private string FindOrgTextFtpoc(string Txt, string Mid, string Src)
+		{
+			string lookForTag="";
+      switch (Src.ToLower())
+      {
+        case "swi":	//
+					lookForTag = ":message";
+	        break;
+	      case "chips":	//
+					lookForTag = ":message";
+	        break;
+	      case "chips":	//
+					lookForTag = ":message";
+	        break;
+		    default:
+				break;
+			}
+			string OrigText="";
+			XmlDocument xml = new XmlDocument();
+			xml.LoadXml(Txt); 
+			
+			//XmlNodeList xnList = xml.SelectNodes(lookFor);
+			XmlNode idNode = xml.GetElementsByTagName(lookForTag)[0];
+			if (idNode != null)
+      {
+				OrigText = idNode.InnerText;
+				Console.Write ("looking for - " + lookFor + " -- " + OrigText+"\n");
+			}
+			return OrigText.TrimStart();
+		}
+
+
+
 Mq manager BDBFZQAQM
  
 NY FED LTERM L1B77F1C
