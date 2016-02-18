@@ -1,1 +1,114 @@
 
+using System;
+using System.IO;
+using System.Text;
+using System.Data;
+using System.Xml;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
+using System.Data.Common;
+using System.Linq;
+
+using Oracle.DataAccess.Client; 
+
+namespace Abc
+{
+	/// <summary>
+	/// Summary description for mqputmsg.
+	/// </summary>
+	public class Abc
+	{
+		/// <summary>
+		/// The main entry point for the application.
+		/// </summary>
+		private OracleConnection m_OraConnection;
+
+		[STAThread]
+		static void Main(string[] args)
+		{
+			Abc mqputmsg = new Abc();
+			mqputmsg.Run(args);
+		}
+
+		private int Run(string [] args)
+		{
+			if (args.Length < 4)
+			{
+				Console.WriteLine( "DmpFld usage: Area UniqueName Table MID FieldName");
+				return (0);
+			}
+			string Area = args[0];
+			string Uname = args[1];
+			string Tbl = args[2];
+			string Mid = args[3];
+			string Fname = args[4];
+			Console.WriteLine( "DmpFld starts Area -" + Area + " Connstr " + Uname + " Table - " + Tbl + " Mid - " + Mid + " Field - " + Fname);
+			string oracleConnectionString="";
+			string f_name = string.Format("c:\\Simulator\\{0}\\feed\\connstring.xml", Area);
+			DataSet srctable = new DataSet();
+			srctable.ReadXml(f_name);
+			foreach (DataTable table in srctable.Tables)
+			{
+					foreach (DataRow row in table.Rows)
+					{
+						if ( (row["uniquename"].ToString() == Uname) )
+							oracleConnectionString = row["connection_string"].ToString().TrimEnd();
+					}
+			}
+			if (oracleConnectionString.ToUpper().IndexOf("DATA SOURCE=") == -1)
+			{
+					Console.WriteLine("dmpfld. Connection String is incorrect. Exiting.");
+					return (0);
+			}
+			m_OraConnection=new OracleConnection();
+			m_OraConnection.ConnectionString = oracleConnectionString;
+			m_OraConnection.Open();
+			Console.WriteLine("State: {0}", m_OraConnection.State);
+//			Console.WriteLine("ConnectionString: {0}", m_OraConnection.ConnectionString);
+			OracleCommand command = m_OraConnection.CreateCommand();
+//			string m_Sql = string.Format("select {0} from {1} where p_mid = '{2}'", Fname, Tbl,Mid);
+			string m_Sql = string.Format("select {0} from {1} where to_char(trn_date,'yyyymmdd') = '20150323' and trn_number = '{2}'", Fname, Tbl,Mid);
+			Console.WriteLine("sql: {0}", m_Sql);
+
+			OracleDataReader reader;
+			command.CommandText = (string)m_Sql;
+			try { reader = command.ExecuteReader(); }
+			catch (Exception ex)
+			{
+				Console.WriteLine(string.Format("dmpfld: Oracle error: {0},",ex.Message),2);
+				return (0);
+			}
+			string fld="";
+			while (reader.Read())
+			{
+					fld = reader[0].ToString();
+					Console.WriteLine ("value " + fld );
+			}
+			int ll=10;
+		  string s1="";
+		  string s2="";
+		  int j=0;
+			for (int i = 0; i < fld.Length; i++)
+			{
+					if (j < ll )
+				  {
+				  	s1=s1+fld[i];
+				  	s2=s2+((int)fld[i]).ToString();
+				  	j++;
+				  }
+				  else
+				  {
+						Console.WriteLine("\""+s1+"\"" + " asc - \"" + s2 + "\"" );
+				  	s1=fld[i].ToString();
+				  	s2=((int)fld[i]).ToString();
+					  j=1;
+				  }
+//					Console.WriteLine("ch - "+fld[i]+ " asc - " + ((int)fld[i]).ToString() );
+			}
+			Console.WriteLine("\""+s1+"\"" + " asc - \"" + s2 + "\"" );
+			return (0);
+		}
+  }
+}
