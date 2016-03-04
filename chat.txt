@@ -45,3 +45,7 @@ Concentrate  on MFUG (union, Bnk of Tokyo)
 Talk about NTI 
 Cut the time to revenue realization in half
 increase speed of configuring
+
+
+update localkeys set compexpression='R(?<Id>[_,A-Z,0-9]*)\^*(\,|\^)+'  where tabnameind=2 and cmpkey='description'
+
