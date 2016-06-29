@@ -48,9 +48,19 @@ teeth night guard - do this
 Hi,
 My name is Eli Abelski, I am a new member of the EFT Technologies team responsible for communication with current and potential 
 customers of EFT.
-I know that you expressed some interest in the EFT product before. 
-Since last time EFT has improved the product tremendously. 
+I know that you expressed some interest in the EFT products before. 
+Since that time EFT has improved the product tremendously. 
 It would be great if we can get a chance to introduce those enhancement to you.
-I would like to  schedulle a video conf so we can explain the new features and remind you about existing ones.
+I would like to  schedulle a video conference so we can explain the new features and remind you about existing ones.
+We can discuss how your organization will benifit from the usage of the Simulator (name of the product).
 
+New features ( for your information, you don't have to go into details):
+Real time comparison without during regression. There is no need to perform the end of day on MTS in order to
+compare the results.
+It speeds up the regression testing,
+Alows you to replay the traffic from the RGW and perform imediate comparison.
 
+State Street Joe Caputo
+Wells Fargo John Jacobs, Charlie Johns
+BB&T Noel, Tammy Griffin
+Union Bank Cindy Hamlett, Chuck Shipman
