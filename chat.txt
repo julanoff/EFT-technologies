@@ -41,11 +41,16 @@ Sequence of events in ACI reply/compare
 3. Run BuildTrnIndex.pl - creates sndrefndx.pag, sndrefndx.dir 
 4. Run compare on the Sim
 
-Concentrate  on MFUG (union, Bnk of Tokyo)
-Talk about NTI 
-Cut the time to revenue realization in half
-increase speed of configuring
-
-
 update localkeys set compexpression='R(?<Id>[_,A-Z,0-9]*)\^*(\,|\^)+'  where tabnameind=2 and cmpkey='description'
+
+teeth night guard - do this
+
+Hi,
+My name is Eli Abelski, I am a new member of the EFT Technologies team responsible for communication with current and potential 
+customers of EFT.
+I know that you expressed some interest in the EFT product before. 
+Since last time EFT has improved the product tremendously. 
+It would be great if we can get a chance to introduce those enhancement to you.
+I would like to  schedulle a video conf so we can explain the new features and remind you about existing ones.
+
 
