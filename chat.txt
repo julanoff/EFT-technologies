@@ -1,32 +1,4 @@
 
-Questions to FT
-
-newjournal
-  username
-  module_id
-  error_params  order by time_stamp desc
-message_external_interface
-  interface_content
-    for a particular interface_name
-msg_rule_log
-  description seprated by commas order by time_stamp desc
-minf
-msgerr
-  ERROR_PARAMS
-  module_id
-  error_code  order by time_stamp desc
-
-
-All combinations for compare:
-SRC   TRG
-----  ----
-GPP   SP
-SP    SP
-GPP   GPP
-ACI   SP
-ACI   GPP
-ACI   ACI
-
 Scripts on MTS side:
 -------------------------------
 
@@ -43,24 +15,160 @@ Sequence of events in ACI reply/compare
 
 update localkeys set compexpression='R(?<Id>[_,A-Z,0-9]*)\^*(\,|\^)+'  where tabnameind=2 and cmpkey='description'
 
-teeth night guard - do this
+ This innovative style of exchanging EMR emerges from evolutionary changes, maturity, development 
+ and advancements of technologies over the last 30 years in banking money transfer business. 
+ It was enhanced, refined, and improved almost to perfection thruout this time.
+ 
+ it is an evolutionary process that will require persuasion, arm twisting, following market forces by multiple
+ health care providers like docs, hosp, labs, etc. to participate.
+ 
+---- Digital Imaging and Communications in Medicine (DICOM) is a standard for handling, storing, printing, 
+ and transmitting information in medical imaging. It includes a file format definition and a network 
+ communications protocol. The communication protocol is an application protocol that uses TCP/IP to
+  communicate between systems. DICOM files can be exchanged between two entities that are capable of 
+  receiving image and patient data in DICOM format. The National Electrical Manufacturers Association (NEMA) 
+  holds the copyright to this standard.[1] It was developed by the DICOM Standards Committee, whose members 
+  are also partly members of NEMA.
 
-Hi,
-My name is Eli Abelski, I am a new member of the EFT Technologies team responsible for communication with current and potential 
-customers of EFT.
-I know that you expressed some interest in the EFT products before. 
-Since that time EFT has improved the product tremendously. 
-It would be great if we can get a chance to introduce those enhancement to you.
-I would like to  schedulle a video conference so we can explain the new features and remind you about existing ones.
-We can discuss how your organization will benifit from the usage of the Simulator (name of the product).
+               EXCHANGE FORMATS
+----- The HL7 Clinical Document Architecture (CDA) is an XML-based markup standard intended to 
+specify the encoding, structure and semantics of clinical documents for exchange. 
+CDA is an ANSI-certified standard from Health Level Seven International (HL7.org). 
 
-New features ( for your information, you don't have to go into details):
-Real time comparison without during regression. There is no need to perform the end of day on MTS in order to
-compare the results.
-It speeds up the regression testing,
-Alows you to replay the traffic from the RGW and perform imediate comparison.
+----- The Continuity of Care Document (CCD) specification is an XML-based markup standard intended to specify 
+the encoding, structure, and semantics of a patient summary clinical document for exchange.
 
-State Street Joe Caputo
-Wells Fargo John Jacobs, Charlie Johns
-BB&T Noel, Tammy Griffin
-Union Bank Cindy Hamlett, Chuck Shipman
+
+ BANKS:
+  Microsoft Health Vault, Apple's HealthKit, Dossia, World Medical Card
+ 
+ Electronic Health record System (EHRS) Health IT (HIT)
+
+Strategy for approaching EHRS and HIT development
+
+1. Current situation
+
+US spends 16% of GDP on health care, the largest share among developed counties.
+The inflation in health care is raising faster than in any other industry.
+The political pressure to slow it down is tremendous. 
+
+from Economist Special Report on Health Care Technology Apr 2009
+
+2. Future estimates
+
+RAND corporation estimates that if 90% of hospitals and doctors will use EHRS it could save $77 billion a YEAR
+from efficiency alone.
+
+from Economist Special Report on Health Care Technology Apr 2009
+
+3. Current developments.
+
+Companies are racing to develop software packages EFT to address EHRS and HIT
+That is a good development although without comprehensive effort and coherent design
+all will prove futile. 
+One company could not create EHRS to be shared among all participants.
+
+But one company could lead in establishing the direction for others to follow.
+It should include standard development, comprehensive approach and strategy.
+
+4. Obstacles.
+
+1. The largest obstacle is security and acceptance from patients. The wary about safe keeping of the records
+is huge. 
+2. Doctors reluctance of participating in it because of extra cost, more work and most important security.
+3. Danger of monolithic approach, data must be free to move on rival software.
+
+5. Approach
+
+This is an enormous task that will require approach similar to the financial organizations.
+There will be need for standard information transferring networks similar to Swift, CHIPS in finance.
+The process should be approached as banking business with all privacy considerations and 
+security attributes. 
+
+Similarity with baking evolvement.
+
+At the beginning of banking there were a lot of branches across the country ( Individual Medical Accounts with 
+different holders)
+that had troubles to communicate in order to conduct banking business as we know it today.
+The government realized the problem and created the Federal Reserve network. 
+After that the banking became dynamic, accessible and more useful.
+Since than other private and semi private networks sprang up like CHIPS and SWIFT - the survivors,
+BankWire and other - extinct ones.
+They allowed US dollar clearing and highly sensitive financial message exchanges around the globe. 
+Any institution could become a member as long as it complies with rules and follow the communication protocol.
+The medical record exchange will need similar approach. 
+
+It took a while until people embraced online banking. During this process people started to get comfortable with
+doing financial transaction over the net. That led to make people in charge of the management of their finances, 
+giving instructions to the banks who to pay and how. This part varies from bank to bank.
+
+The EHRS should be approached as such.
+Each individual needs an account with EHRS holding company (similar to banks).
+A person should be able to give instructions to the record holding company how to move 
+his own records from one participating institution to another.
+A record holding companies could charge fees for certain services. The market will regulate those fees
+and services. (again similar to the banks)
+
+Doctors, hospitals, laboratories should be mandated to transfer patient's data over to the specified institution
+upon patient's request.
+When  admitted to the hospital, a person gives authorization to the hospital or doctor to access the records.
+Some work is being done to establish Medical Accounts for Individuals. The means of communications between
+Individual Medical Account and Providers, Doctors, Laboratories needs to be addressed.
+There is a need for secure communication among myriad of Providers, Doctors, Individuals, Laboratories etc. ,
+maintaining unique Ids and addresses of each participant, 
+garantiing secured delivery of each transaction and many more other aspects of modern exchanges.
+It is a process that will be evolving through times. But the ball needs to start rolling and your Company could start
+this process.
+
+
+
+6. Need of the network.
+
+This has to be addressed by creating a central communication hub. It could be private or semi private institution.
+This organization will provide Doctors, Laboratories, Hospitals etc. with secure access and means to exchange 
+information that is authorized by individual. 
+Therefore, an exchange protocol has to be designed that will be a standard for ALL participants.
+The current state of technology makes it very achievable. Cloud computing could offer inexpensive way for everybody
+to participate. For individuals, it should be free. For providers, hospitals etc. it probably should be fee based service.
+
+
+7. Tasks to address
+
+Health records must be firmly controlled by patients, not doctors, hospitals or government.
+Sense of security is an essential part to gain public trust. Again, it is very similar to the development of
+the banking networks which talk to each other seamlessly around the globe.
+Allow patient to manage, share, distribute own records (similar to banking transactions)
+
+
+
+8. Potential usage of it
+
+
+After a while individual records will become a commodity.
+A person would be able to sell the data to big pharmaceuticals or research centers to  anonymously compile
+data or for drug research.
+Mining anonymous data could help docs to broad their experience which tremendously helps the patients.
+
+
+
+Conclusion.
+
+In today's political environment the health care is the highest priority and rightfully so.
+It would be feasible to get favorable attention from politicians. 
+There are a lot of funds available for this enormously important task.
+Broad spectrum of benefits to doctors, hospitals, patients, the finally the country.
+No other company is better suitable to lead this effort, 
+Your achievement in storing and accessing data will speed up the introductions of necessary tools to start 
+nationwide effort in EHRS.
+
+
+About us.
+
+
+We have been in the banking funds transfer business for over 25 years. 
+Our vast experience includes protocol design and development, implementation large of MTS. ACH systems for the 
+large financial institutions like Bank of America, JP Morgan Chase, Bank of NY.
+We have a clear vision how to solve communication tasks, organize secure environment, network establishment etc.
+This knowledge and experience could provide new angle to this important task.
+
+
