@@ -1,0 +1,57 @@
+Problem
+
+There is a serious challenge in testing the software in a high volume transaction processing business.
+A simple little glitch leads to potentially enormous monetary  losses, damaged reputation, and affects large amount of clients.
+Rectification becomes harder and more laborious.
+
+The complexity of those software packages are exponentially increasing and detection of hidden problems become more challenging.
+
+QA of high volume processing applications presents the following difficulties:
+
+1. Large variety of different transaction types.
+Currently the approach is to take a production day and run it thru the new software package.
+Look for differences and identify deviation from the expected results.
+High volume presents a serious challenge to this approach. 
+
+2. Various types of transactions are scattered over different days.
+The variety of transaction types are processed in different days. For example, different transactions come at end of month 
+vs. the beginning of month. More complex traffic is processed at the end of year than in the middle of the month.
+Since majority of those systems are international various national holidays come to play. The adjustments are to be made for 
+this as well. 
+
+3. Testing time constrains
+The QA teams are under pressure to conduct necessary tests especially when the real production problem occurs. 
+In this case the challenge is to quickly check ALL aspects with acceptable level of a mistake tolerance.
+Today there is no assurance that proper test is conducted since it is purely under human control which is prone to error.
+Before a major release more extensive tests are required. The acceptable level of error tolerance is high. On the other 
+hand the time constrain is high as well. The solution is to throw more people to speed it up. That leads to higher probability
+of human mistakes.
+
+4. Expectation of the tests
+The expectation for the tests are different. for example insignificant change that rectifies a particular problem does not
+require a full scale test. Although, it may effect the other part of processing due to complexity of the system. 
+Therefore the test is required to check the sanity of the application but not to the same degree as when the major software
+release  is received.
+The challenge here is to adjust testing requirements based on the expectation.
+
+5. Eliminate similar type of transaction.
+There are a lot of similarity in certain type of transaction. Often they present a large portion of daily traffic. 
+Correlation among them are high. Therefore, it is desirable to limit them in testing procedures.
+
+
+
+Desired results
+
+1. ability to choose right number of transactions to conduct a test with an acceptable error tolerance
+
+2. adjust the acceptable level based on the importance of the required tests
+
+3. after adjusting, help to choose the right number and variety of transaction types to cover wide range of traffic
+
+4. the selected traffic should represent the full spectrum of desired transactions
+
+5. take into consideration the acceptable level of deviation from the desired results
+
+6. report a margin of error at the end of the test
+
+7. 
