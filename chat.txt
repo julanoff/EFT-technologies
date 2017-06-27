@@ -15,3 +15,21 @@ Sequence of events in ACI reply/compare
 
 update localkeys set compexpression='R(?<Id>[_,A-Z,0-9]*)\^*(\,|\^)+'  where tabnameind=2 and cmpkey='description'
 
+
+program
+            IPAddress thisIp = null;
+
+            string strHostName = Dns.GetHostName();
+            IPHostEntry iphostentry = Dns.GetHostEntry(strHostName);// Find host name
+			Console.WriteLine("name - " + strHostName);
+
+            foreach (IPAddress ipAddress in iphostentry.AddressList)// Grab the first IP addresses
+            {
+                if (ipAddress.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+				{
+                    thisIp = ipAddress;
+					Console.WriteLine("cr - " + thisIp);
+					Console.WriteLine("fami - " + thisIp.AddressFamily);
+				}
+            }
+			return (0);
