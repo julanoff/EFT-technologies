@@ -1,0 +1,321 @@
+user - mtsusn/mts12345
+
+areas:
+	usn_oat
+	jpt_oat
+	usn_uat
+
+ip - mtsdev - 10.193.31.249
+
+jn1, jn2 LWOMEN13
+
+Germany
+Server ip address 10.193.60.112
+id mtsdef
+pasword dev12345
+
+ukavddmts05a - 10.193.28.209 - new box
+mtsusn/Mar@2017
+
+MQ Utils
+/usr/payments_def/bin/mqudef
+
+/shared/home/mtsjpt/jpmqu
+
+SWF Real Duke_2004
+
+Commands:
+
+ca - change area
+ent area 
+ent p
+ent 
+prt_queue -name PAYADV_LOG -b SCB
+prt_queue -b scb -na fedin_log -pe 07-APR-2015 
+q_util -inc /*///swfinq -notrn (-static or -message or -nostatic or -nomessage)
+q_util -summary -notrn
+q_util -inc /SCB///FEDPNDSACKQ2 -notrn -message -unqueue_every_item
+idi message:/2 src_code: msgtype: end:
+idi_read_only -db_dump -show_null
+source /usr/intranet/mtsusnuat/mts/40/z_scb/config/int_pre_sod.cfg
+
+stop_up_down -external
+stop_up_down -internal
+
+
+sfm_linecmd -lt SCBLUS30A -login
+sfm_linecmd -lt SCBLUS30A -select -subset system,urgent,normal -state YY
+
+move_utility  -f /scb//bkthi1_ofacq -t /scb//hr_bkt_ofacq -c 3
+
+show_root_idx INDEX_NAME
+
+G:\Technology-TSD\AIX\4.0 USN Installation and Configuration\ACI Documentation --  docs 
+G:\Technology-TSD\AIX\4.0 USN Installation and Configuration\Case Management 4.0 - bugs are reported
+
+MTS_Entia_Database_Guide
+MTS_40_Utilities_and_Commands_Guide
+
+view $(bld_path_ls 'AREA_CONFIG_PATH/mts.cfg')
+
+bld_path_ls AREA_PATH/bld_path_ls
+
+/var/adm/syslog.out - look for messages, traps, etc.
+
+export ROUTE_TRACE=Y	- turn on tracing
+
+find  /usr/  -name LAU* -type f 2>/dev/null
+
+inetmake SQUEAKY_CLEAN
+			
+msg_util -load -file msg_util_FED_Jacob.txt -b SCB -source FED -que FEDINQ
+
+move_utility -f /scb//dda_backend -t /scb//cut_excq -c 1 -memo "CMP/F  7-MAY-2015 11:39:56.27"
+
+sed “s/150702/150814/g” f1 > F2  -----  global substitution
+find *telco* -mtime +6 -type f -exec rm  {} \; - removes files older than 6 days
+
+edump -f | gzip -c > AREA.edmp.gz - make dump of the entia DB
+gunzip -cf AREA.edmp.gz | eload AREA -f
+
+DEBUG
+handle SIGUSR2 nostop noprint
+steps:
+1. file xxx
+2. b reak
+3 run program args
+
+Do this when recover:  usn_dvl
+LIBPATH=$LIBPATH:/usr/local/intranet/ace_uat_usn_rt/hf_acert/bin
+To compile in scb_bld_rls.
+SBJ_AREA_ROOT_DIR should be local
+
+Ultra EDIT
+CTRL F5 - to lower csase
+ALT F5 - to upper case
+___________________________________________________________________________________
+open SPR  !!!!!!!
+
+/case management 4.0/SCB ACI SPR Reporting Sheets USN MTS 4.0 Jan - Jun2015/
+open SCB ACI SPR Reporting Sheet for USN MTS 4 0 Project_20150408.xls and reserve the next SCBxxx number
+need idi dump, msgprint, docs. 
+collect all the info in /usr/psstemp_uat_usn/cases open new dir for new SCBxxx
+make new folder in G:\Technology-TSD\AIX\4.0 USN Installation and Configuration\Case Management 4.0
+move all the stuff from AIX 
+   SecureCRT file--> connect sftp session
+    lcd g:\tec....\ dir from g: drive with all rabbish
+    lpwd
+    lls
+    get -a /usr/psstemp_uat_usn/cases/SCBxxx
+Copy SPRxxx.doc file from the previous case and edit it.
+
+Go to ACI web site ( user id jacob.novak@sc.com/Duk)
+    open a new case See the pics from Karen
+    submit the spr
+    get the SPR # and plug it in to the .doc file in the G: drive
+    zip all files from G: and attach it to the SPR (use 'attach files') (NOT my Vault)
+
+when ACI assigns the SPR for it 
+open SCB ACI SPR Reporting Sheet for USN MTS 4 0 Project_20150408.xls and update
+
+_____________________________________________________
+
+
+bash cmds
+while [ $a -lt 2 ]; do echo $a; done
+
+_____ .mk3 fix
+custom_subs/z_scb_cust_ar_fifo.o" \
+-e "-bE:$(SBJ_ROOT_DIR)/lib/libcustom_subs.imp" -l "-lisode  
+   | this space
+______________________________________________________
+
+
+Installing ACI soft
+
+
+/usr/intranet/ship/usnmts  -- you will see all our bundle deliveries. It is done by downloading stuff from ACI
+if it ends in f, it's a full bundle or hot fix
+if it ends in s, it's a snapshot
+
+logon to the other test server: 10.193.31.10
+Be careful with the ID/password:
+pmaninst/Test!2345  -- The pmaninst ID is just for installing pakman
+once you get on, select #10 (Run Pakman) and then at the prompt, type "list"
+you'll see what's there.
+mtsusn/scope@123
+Packman commands: read, preview, install, verify
+
+Examples:
+
+>>>>pakman (product:mtsusnsit) > list   
+	  #  Level             Installed in
+	---  ----------------  --------------------------------------------------
+	     intranet.appsupport 10: Additional files from Application and Technical Support
+	  1  * 10.0.127.0      product: mtsusnprd  mtsusnuat  
+
+>>>>> pakman (product:mtsusnsit) > preview 1
+	Previewing installation of intranet.appsupport 10.0.127.0
+	Additional files from Application and Technical Support
+
+                                                                             
+	Installation Plan:
+	------------------
+	This installation will make the following changes
+
+>>>>>pakman (product:mtsusnsit) > install 1
+	Installing intranet.appsupport 10.0.127.0
+	Additional files from Application and Technical Support
+
+	Installing: 100% (done)                                                      
+	Set permissions: 100% (done)                                                 
+	Install of intranet.appsupport completed successfully!
+
+>>>>>>>pakman (product:mtsusnsit) > verify 1
+	intranet.appsupport 10.0.127.0 (product:mtsusnsit): Verified      
+
+>>>>>>>pakman (product:mtsusnsit) > uninstall 1
+	Remove intranet.appsupport 10.0.127.0 from "product:mtsusnsit"? (y/n): y
+	Uninstalling: 100% (done)                                                    
+	Removed /usr/intranet/mtsusnsit/appsupport.
+
+	intranet.appsupport has been successfully uninstalled.
+    
+
+___________________________________________________________
+  *MRSTOP/*MR/MAP/   /Y/$$$SWF
+
+
+_________________________________________________________________
+
+load msgs via mq
+
+this is the c program of loading messages into MQ
+/shared/home/mtsjpt/jpmqu
+
+Here are all parameters you can pass
+ATTENTION: Each parameter must have a minus (-) before it. 
+The mqutil command reads messages from either a file or MQ queue, extracting
+the specified messages, and writing them to a file, a queue or the screen.
+The mqutil command without parameters prompts an interactive session.
+However, parameters may be specified in any orderjn1	lwomen13
+j and are
+ -h, -?          (help, to get only this screen)
+ -if filename    (input file)
+ -iq queuename   (input MQ queue [browse mode]--upper/lower case)
+ -ib queuename   (input MQ queue [browse with detail]--u/l case)
+ -id queuename   (input MQ queue [delete mode]--upper/lower case)
+ -im queueMgr    (input MQ queue manager--upper/lower case)
+ -of filename    (output file)
+ -oq queuename   (output MQ queue--upper/lower case)
+ -om queueMgr    (output MQ queue manager--upper/lower case)
+ -os             (output to the SCREEN
+ -ct count       (number of messages to be extracted, 0 for ALL)
+ -cp             (DEFAULT--copy/select all, limited only by count)
+ -sm selectMask  (select by mask--amount, field 20, etc.)
+ -sr selectRange (select by sequence num, for example, 000000-000005)
+ -st selectType  (select by message type, specify I or O).
+you can execute it from home simply like this
+jpmqu -if FileName 
+and follow it interatively
+
+or you can simply use a single line command:
+jpmqu -if eBBS_Memo.txt -oq JPT.MPS.MTS.SWIN -om JPMTS1S1.
+jpmqu is the c program
+eBBS_Memo.txt is the file name
+JPT.MPS.MTS.SWIN is the MQ queue
+JPMTS1S1 is the Queue Manager name.
+
+first let's talk about the Message format:
+These must be standard SWIFT messages
+1. each line ends with CR + LF
+2 each message ends with LF  (no CR here).
+
+to re-seq isn/osn
+----------------------
+/shared/home/mtsjpt/jpmqu -if FileNae -oq EFF.MPS.MTS.SWIN_GMS -om DEMTS1S1
+/shared/home/mtsjpt/jpmqu -of FileName -iq EFF.MPS.MTS.GMSIN -im DEMTS1S1
+
+
+/shared/home/mtsjpt/jpmqu -oq JPT.MPS.TEMP -om JPMTS1S1 -if FileName 
+
+______________________________________________________________
+
+To use this trick to disable USB ports, follow the steps given below:-
+
+Click on Start.
+Click on Run. If you cannot find RUN, type it in the search box.
+Type "regedit" without quotes. This will launch the Registry Editor.
+Navigate to  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\usbstor.
+In the work area, double click on Start.
+In the Value Data box, enter 4.
+Click on OK.
+Close Registry Editor and refresh your desktop.
+To re-enable access to your USB ports, enter 3 in the Value Data box in Step 6.
+
+__________________________
+
+prt_queue -b scb -na  SCBA_F_RCV -pe 12-may-2015 - swf incomings
+CHIPSRCV - incoming CHPs
+FEDIN_LOG
+MTRANSFTRENT_LOG 
+
+-history SUMMARY
+_____________________________________________________________________________
+1. talk to Diane for a test area for CMS
+2. configure the test area to be identical to jpt_ust2 (currently doing UAT)
+3.  to make it easier about all queues allocated, you can shutdown jpt_ust2 (if no one is doing UAT) and copy that database over too
+and now this test area will be identical to jpt_ust2
+then that's about half done already
+
+ln -s -f /usr/intranet/mtsjptuat/mts/40/lib/z_scj_libcustom_subs.a libcustom_subs.a (change softlink)
+                 real directory                                      the softlink name
+
+bencmark
+
+Talk to Daine to see if it's OK to use your DB for BM
+if it's agreed, you can use the same DB in jpt_uat
+change port number in remote: /stop  ... port number for MatchServer is in area.cfg
+change the area description in bank:   (idi bank: all: end: and you see it)ls
+echo "yes" | mts -c
+mts -r
+before this, see if Diane wants to move to a new business date too
+and also if she prefers to unqueue all messages in all queues
+if yes, then
+q_util -inc /SCB/*//*q -unqueue_every_item
+q_util -inc /SCB/*//*q -mess -unqueue_every_item
+.
+then you're ready
+
+swift/Dog+2004
+
+----------------germany
+
+
+b3 lqm
+load on mqqueue
+
+/usr/payments_def/bin/mqudef -if /shared/home/mtsdef/DE_CLS.txt -oq EFF.MPS.MTS.GMSIN -om DEMTS1S1
+
+Rivera, Julia-  DEF_STOR_TDE_CERSmmm.BASH
+
+---- set line seqs to 1!!!
+/usr/local/intranet/areas/jpt_sit1/scb_scripts/JPT_reset_seq.BASH
+
+-- Dir where MQ writes all stuff ---
+
+/usr/payments_jpt/msgs/
+
+
+export ORACLE_HOME=/u01/app/oracle/product/11203/Client_1
+export ORACLE_SID=USNRGW_DAAS
+$ORACLE_HOME/bin/sqlplus MTS_USNRGW_APP/mts_usnrgw_app_123@USNRGW_DAAS
+
+select amount  from message where trn_date=TO_DATE('17-mar-2015','dd-MON-yyyy')  and trn_number=200;
+
+Paula  .
+match_server_linecmd debug
+- reproduce the issue
+match_server_linecmd dump
+match_server_linecmd trace_off
+- send us the MatchTrace*.log file
