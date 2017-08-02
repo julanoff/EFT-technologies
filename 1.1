@@ -1,13 +1,6 @@
-$area_name      = uc("$ENV{'AREA_NAME'}");
-
-open(CRD,"showperiods |") || die "Can not open pipe: $!\n"; 
-while (my $line = <CRD>)  {
-            my $pos = index($line, "DEFAULT");
-                        if ($pos != -1) {
-                                print "ERASING $line";
-                                my $cmd1 = "erase_date";
-                                open(CRD1,"$cmd1|") || die "Can not open pipe: $!\n"; 
-                                close(CRD1);
-                        }
+sub trim{
+        my $temp_string = shift;
+        $temp_string =~ s/^\s+//;
+        $temp_string =~ s/\s+$//;
+        return $temp_string;
 }
-close(CRD);
