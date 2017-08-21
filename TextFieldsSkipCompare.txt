@@ -1,0 +1,17 @@
+!
+! This file contains keys for text fields that we know will be different when we compare messages.
+! Stuff like imad's, omad's and whatever else we run accross in our processing.
+! If the text line in compare is marked as having changed we'll look thru this list to 
+! see if the text contains any of these. If we get a hit we'll mark the text as being
+! the same, not different.
+! 
+! Comments are fine, just start the line with a ! 
+!
+! Fed fields
+!
+{1100}
+{1120}
+!
+! Chip
+!
+[031]
